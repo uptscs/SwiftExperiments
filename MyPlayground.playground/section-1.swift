@@ -8,14 +8,14 @@ let androidTeamMembers = 200.0
 var mobilePracticeStrength: Double = iOSTeamMembers + androidTeamMembers
 mobilePracticeStrength += 1
 
-println("Total mobile team members are: \(mobilePracticeStrength)")
-println("Total mobile team members are: \(iOSTeamMembers + androidTeamMembers)")
+print("Total mobile team members are: \(mobilePracticeStrength)")
+print("Total mobile team members are: \(iOSTeamMembers + androidTeamMembers)")
 
 //String Operations
 let labelText = "The value of label is: "
 let labelValue = 98
 let widthLabel = labelText + String(labelValue);
-println(widthLabel)
+print(widthLabel)
 
 
 //Looping
@@ -31,6 +31,31 @@ for score in individualScore{
     }
 }
 teamScore
+
+for character in "Elephant".characters {
+    print(character)
+}
+
+//TODO: Indices are not available
+//var greetings = "Guten Tag"
+//for index in indices(greetings){
+//    print(greetings[index])
+//}
+
+//Insert string
+var welcome = "Welcome Bhai"
+welcome.insert("!", atIndex: welcome.endIndex)
+print(welcome)
+//welcome.splice
+
+//Remove string
+welcome.removeAtIndex(welcome.endIndex.predecessor())
+print(welcome)
+
+let range = welcome.endIndex.advancedBy(-5)..<welcome.endIndex
+//let range = Range<String.Index>(start: welcome.startIndex, end: advancedBy(5))
+welcome.removeRange(range)
+print(welcome)
 
 
 var loopCount = 0
@@ -71,7 +96,7 @@ switch vegetable{
 
 //Array Dictionary framework
 var students = ["Ram", "Rahim", "Test 1", "Test2"]
-println(students[1])
+print(students[1])
 
 let occupations = [
     "Ram" : "God",
@@ -81,9 +106,9 @@ let occupations = [
 ]
 
 let ramOccupation = occupations["Ram"]
-println("Occupation of Ram: \(ramOccupation)")
+print("Occupation of Ram: \(ramOccupation)")
 if(ramOccupation == "God"){
-    println("Ram is God")
+    print("Ram is God")
 }
 
 //Empty array or empty dictionary
@@ -99,7 +124,7 @@ var listofKindandNumbers = [
 ]
 for (kind, numbers) in listofKindandNumbers{
     for number in numbers{
-        println("\(kind) : \(number)")
+        print("\(kind) : \(number)")
     }
 }
 
@@ -109,7 +134,8 @@ for (kind, numbers) in listofKindandNumbers{
 func greet(name:String, day:String) ->String {
     return "Hello \(name) Today is \(day)"
 }
-greet("Upendra", "Friday")
+
+greet("Upendra", day: "Friday")
 
 func scoreEvaluation(scores : [Int]) -> (min:Int , max:Int, sum:Int) {
     var sum = 0
@@ -167,7 +193,7 @@ func lessThanTen (number : Int) -> Bool {
 }
 let list = [10,14,1,5,4,5,6,6,7,3,4345,6,7,657,56,7567]
 let item = 10;
-hasAnymatch(list, lessThanTen)
+hasAnymatch(list, condition: lessThanTen)
 
 //Function closure
 func testClosure( numbers: [Int]) {
@@ -184,9 +210,11 @@ func testClosure( numbers: [Int]) {
 }
 let items = [10, 10, 20, 30]
 testClosure(items)
+
 //Refering to parameter with seuence number instead of name
-var sortedNumbers = sorted(items){ $0 < $1}
-sortedNumbers
+//sorted is not available with Swift 2.0
+//var sortedNumbers = sorted(items){ $0 < $1}
+//sortedNumbers
 
 
 /******************************    Objects and Classess    *********************************/
@@ -410,15 +438,15 @@ myNum.addTen()
 /******************************    Generics    *********************************/
 
 //Generic functions
-func repeat<Item>(item: Item, times: Int){
-    var result = [Item]()
-    for i in 0..<times {
-        result.append(item)
-    }
-    result
-}
-repeat("Test", 5)
-repeat(100000, 10)
+//func repeat<Item>(item: Item, times: Int) -> Item {
+//    var result = [Item]()
+//    for i in 0..<times {
+//        result.append(item)
+//    }
+//    result
+//}
+//repeat("Test", 5)
+//repeat(100000, 10)
 
 //Generic Enums
 enum OptionalValue<T>{
@@ -439,8 +467,10 @@ func ​anyCommonElements​ <T, U where T: SequenceType, U: SequenceType, T.Gen
     }
     return false;
 }
-let isElementCommon = ​anyCommonElements​([1,2,3], [4])
+let isElementCommon = ​anyCommonElements​([1,2,3], rhs: [4])
 
+
+//Pyramid Dooming, famously used for the nested if/else coding requirement
 
 
 
